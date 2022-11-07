@@ -6,9 +6,9 @@ const Pagination = ({ usersPerPage, totalUsers, paginate }) => {
   for (let i = 1; i <= Math.ceil(totalUsers / usersPerPage); i++) {
     pageNumbers.push(i);
   }
-  
+
   return (
-    <nav>
+    <nav className="d-flex justify-content-center align-items-center">
       <ul className="pagination">
         {pageNumbers.map((number) => {
           return (
