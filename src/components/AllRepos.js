@@ -23,10 +23,12 @@ const AllRepos =()=> {
     fetchData()
   }, [])
 
-  //Get current User
-  const indexOfLastPage  = currentPage * recordsPerPage
-  const indexOfFirstPage = indexOfLastPage - recordsPerPage
+  //Get current Page
+  const indexOfLastPage  = currentPage * recordsPerPage //4
+  const indexOfFirstPage = indexOfLastPage - recordsPerPage // 0
   const currentUserPage = repoList.slice(indexOfFirstPage, indexOfLastPage);
+
+  console.log(repoList)
 
   //Change page
   const paginate = pageNum => setCurrentPage(pageNum)
@@ -40,7 +42,7 @@ const AllRepos =()=> {
           <h1 className="mt-4">{user}'s Repositories</h1>
 
           <div>
-            {repoList.map((item) => (
+            {currentUserPage.map((item) => (
               <Profile key = {item.id} {...item}/>
             ))}
           </div>
